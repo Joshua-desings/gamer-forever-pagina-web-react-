@@ -1,16 +1,28 @@
 // services/api.js
 import axios from '../api/axios';
 
-const api = {
-  getGames: () => {
-    return axios.get('/games') // Hacer la solicitud GET a la lista de juegos
-  .then(response => {
-    // Manejar los datos de la respuesta aquí
-    console.log(response.data);
-  })
-  .catch(error => {
-    // Manejar cualquier error que pueda ocurrir durante la solicitud
-    console.error('Error al hacer la solicitud a la API', error);
-  });
-  }
-}
+const API = {
+  getGames: async () => {
+    try {
+      const response = await axios.get('/games');
+      // Devolver directamente los datos para que puedan ser manejados en el componente
+      return response.data;
+    } catch (error) {
+      // Lanzar el error nuevamente para que pueda ser manejado en el componente
+      throw error;
+    }
+  },
+
+  // Método mejorado que acepta parámetros
+  getGamesWithParams: async (params) => {
+    try {
+      const response = await axios.get('/games', { params });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+};
+
+export default API;
+

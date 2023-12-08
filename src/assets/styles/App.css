@@ -29,11 +29,13 @@
   margin-right: 8px;
   margin-left: 8px;
 }
+
 /* Estilos para el contenedor de búsqueda */
 .search-container {
   display: flex;
   align-items: center;
-  width: 60%;
+  height: 20px;
+  width: 55%;
   background-color: #4A4949; /* Gris claro */
   border-radius: 20px; /* Bordes redondeados */
   padding: 12px; /* Espaciado interno ligeramente mayor */
@@ -41,14 +43,22 @@
   margin-right: 24%; /* Mover el contenedor a la izquierda */
   color: rgba(255, 255, 255, 0.5); /* Color de texto gris transparente */
   font-family: 'Roboto', sans-serif; /* Fuente Roboto */
-  position: relative; /* Añadido para ajustar el ícono */
-  transition: background-color 0.3s, color 0.3s; /* Agregado para transición de colores */
+  position: absolute;
+  top: 25px; /* Puedes ajustar este valor según tu preferencia */
+  left: 55%;
+  transform: translateX(-50%);
+  transition: background-color 0.3s, color 0.3s, opacity 0.5s; /* Agregado para transición de colores y opacidad */
 }
 
 /* Cambio de color al ser tocado */
 .search-container:hover {
   background-color: #ffffff; /* Blanco al tocar */
   color: #000000; /* Negro al tocar */
+}
+
+/* Muestra la lista de resultados solo si la barra de búsqueda está enfocada */
+.search-container:focus-within .search-results {
+  opacity: 1; /* Hace que la lista sea visible cuando la barra de búsqueda está enfocada */
 }
 
 /* Estilos para el icono de la lupa */
@@ -71,7 +81,60 @@
   flex: 1;
 }
 
-.profile-container {
-  /* Estilos para el contenedor de perfil */
+.search-results {
+  position: absolute;
+  margin-top: 8px;
+  top: 100%; /* Coloca la lista justo debajo de la barra de búsqueda */
+  left: 0;
+  width: 100%; /* Haz que la lista ocupe el ancho completo de su contenedor */
+  z-index: 1; /* Asegura que la lista aparezca encima de otros elementos */
+  opacity: 0; /* Inicialmente oculta la lista */
+  transition: opacity 0.5s; /* Agregado para una transición suave de la opacidad */
+  background-color: #fff; /* Ajusta el color de fondo según tu diseño */
+  border: 1px solid #ccc; /* Agrega un borde para separar la lista del resto de la página */
+  border-radius: 20px; /* Bordes redondeados */
+  color: #000000; /* Texto negro en el fondo blanco */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  max-height: 200px; /* Limita la altura máxima de la lista para que no se extienda demasiado */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
 }
 
+/* Agrega estos estilos a tu hoja de estilos para personalizar la barra de desplazamiento */
+.search-results::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: #FF005E; /* Color del "pulgón" de la barra de desplazamiento */
+  border-radius: 6px; /* Bordes redondeados del "pulgón" */
+}
+
+.search-results::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+  border-radius: 6px; /* Bordes redondeados */
+}
+
+/* Agrega estos estilos a tu archivo de estilos CSS */
+
+/* Loader.css */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tus necesidades */
+}
+
+.loader {
+  border: 8px solid #FF005E; 
+  border-top: 8px solid #00FF69; 
+  border-radius: 30%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
