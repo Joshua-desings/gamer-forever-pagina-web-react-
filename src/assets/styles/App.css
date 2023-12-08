@@ -8,7 +8,7 @@
   background-color: #000000;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Añadir ancho del 100% */
+  
 }
 
 .logo-container {
@@ -46,6 +46,7 @@
   position: absolute;
   top: 25px; /* Puedes ajustar este valor según tu preferencia */
   left: 55%;
+  z-index: 1;
   transform: translateX(-50%);
   transition: background-color 0.3s, color 0.3s, opacity 0.5s; /* Agregado para transición de colores y opacidad */
 }
@@ -138,3 +139,134 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Estilos para NavBar.css */
+
+.navbar {
+  background-color: #002334; /* Azul */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #fff; /* Texto blanco */
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  padding: 14px;
+  transition: color 0.3s; /* Transición de color al pasar el ratón */
+}
+
+.nav-item:hover {
+  color: #ecf0f1; /* Color de texto al pasar el ratón */
+}
+
+/* Establece un estilo para el enlace activo */
+.active {
+  color: #2c3e50; /* Color de texto para el enlace activo */
+  background-color: #ecf0f1; /* Fondo al pasar el ratón sobre el enlace activo */
+}
+
+.nav-list-horizontal {
+  list-style-type: none; /* Elimina los puntos de la lista */
+  display: flex; /* Muestra la lista en línea horizontalmente */
+  padding: 0; /* Elimina el espacio interno predeterminado de la lista */
+  margin-left: 30mm;
+}
+
+/* Carousel Styles */
+
+/* Estilo general de las flechas */
+.custom-arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; /* Cambiado a fondo transparente */
+  color: #fff; /* Cambiado a color blanco */
+  border: none; /* Eliminado el borde */
+  padding: 0; /* Eliminado el relleno */
+  z-index: 1;
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo de la flecha izquierda */
+.left-arrow {
+  left: 10px;
+  font-stretch: ultra-condensed;
+  font-size: 40mm; /* Tamaño ajustado */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Agregada sombra para mejorar la visibilidad */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo de la flecha derecha */
+.right-arrow {
+  right: 10px;
+  font-stretch: ultra-condensed;
+  font-size: 40mm; /* Tamaño ajustado */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Agregada sombra para mejorar la visibilidad */
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo de la tarjeta de juego */
+.game-card {
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease; /* Transición suave para la transformación */
+}
+
+/* Estilo de la imagen del juego */
+.game-image {
+  width: 100%;
+  height: 110mm;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregada sombra para resaltar la imagen */
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+/* Estilo del puntaje del juego */
+.game-score {
+  background-color: #333;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo del título del juego */
+.game-title {
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+  position: absolute;
+  top: 60%;
+  left: 18%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+/* Estilo de las flechas en estado hover */
+.custom-arrow:hover,
+.left-arrow:hover,
+.right-arrow:hover {
+  color: #00FF69; /* Cambia el color al hacer hover */
+}
+
+
+
+
+
+
+
+
