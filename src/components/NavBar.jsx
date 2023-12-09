@@ -1,29 +1,30 @@
 import React from 'react';
-import '../assets/styles/App.css'; // Asegúrate de ajustar la ruta al archivo NavBar.css
+import { Link } from 'react-router-dom';
+import '../assets/styles/App.css';
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <ul className="nav-list-horizontal">
         <li>
-          <a href="/" className="nav-item">
+          <Link to="/" className="nav-item">
             PAGINA PRINCIPAL
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/categorias" className="nav-item">
+          <Link to="/categorias" className="nav-item">
             CATEGORIAS
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/dispositivos" className="nav-item">
+          <Link to="/dispositivos" className="nav-item">
             DISPOSITIVOS
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/empresas" className="nav-item">
+          <Link to="/empresas" className="nav-item">
             EMPRESAS DE VIDEOJUEGOS
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

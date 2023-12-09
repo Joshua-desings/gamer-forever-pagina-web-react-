@@ -35,24 +35,23 @@
   display: flex;
   align-items: center;
   height: 20px;
-  width: 55%;
+  width: 49%;
   background-color: #4A4949; /* Gris claro */
   border-radius: 20px; /* Bordes redondeados */
   padding: 12px; /* Espaciado interno ligeramente mayor */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
-  margin-right: 24%; /* Mover el contenedor a la izquierda */
   color: rgba(255, 255, 255, 0.5); /* Color de texto gris transparente */
   font-family: 'Roboto', sans-serif; /* Fuente Roboto */
   position: absolute;
   top: 25px; /* Puedes ajustar este valor según tu preferencia */
-  left: 55%;
+  left: 49%;
   z-index: 1;
   transform: translateX(-50%);
   transition: background-color 0.3s, color 0.3s, opacity 0.5s; /* Agregado para transición de colores y opacidad */
 }
 
 /* Cambio de color al ser tocado */
-.search-container:hover {
+.search-container.hidden:hover {
   background-color: #ffffff; /* Blanco al tocar */
   color: #000000; /* Negro al tocar */
 }
@@ -261,6 +260,43 @@
 .left-arrow:hover,
 .right-arrow:hover {
   color: #00FF69; /* Cambia el color al hacer hover */
+}
+
+/* profile.css */
+
+.profile {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 28px; /* Ajusta el margen según sea necesario */
+}
+
+.profile-image {
+  width: 45px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px; /* Ajusta el margen según sea necesario */
+}
+
+.profile-text {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.profile-link {
+  margin-right: 10px; /* Ajusta el margen entre los elementos según sea necesario */
+  cursor: pointer;
+}
+
+.divider {
+  margin-right: 5px; /* Ajusta el margen entre la barra vertical y las palabras */
+  font-size: 35px;
 }
 
 

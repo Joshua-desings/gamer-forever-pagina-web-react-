@@ -1,12 +1,12 @@
 // SearchBar.jsx
-import React, { useState, useEffect } from 'react';
-import useDebounce from '../utils/debounce';
-import api from '../services/api';
-import SearchIcon from '../assets/images/search_icon.png';
-import Loader from '../utils/Loader';
+import React, { useState, useEffect } from "react";
+import useDebounce from "../utils/debounce";
+import api from "../services/api";
+import SearchIcon from "../assets/images/search_icon.png";
+import Loader from "../utils/Loader";
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isActive, setIsActive] = useState(false); // Nuevo estado para indicar si la barra de búsqueda está activa
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
         const response = await api.getGamesWithParams({ search: searchQuery });
         setSearchResults(response.results);
       } catch (error) {
-        console.error('Error al buscar juegos:', error);
+        console.error("Error al buscar juegos:", error);
       } finally {
         setLoading(false);
       }
@@ -30,24 +30,26 @@ const SearchBar = ({ onSearch }) => {
     } else {
       setSearchResults([]);
     }
-     // Activa la barra de búsqueda cuando se hace clic en ella
-     const activateSearchBar = () => {
+    // Activa la barra de búsqueda cuando se hace clic en ella
+    const activateSearchBar = () => {
       setIsActive(true);
     };
 
     // Desactiva la barra de búsqueda cuando se hace clic en otra parte de la página
     const deactivateSearchBar = (event) => {
-      if (!event.target.closest('.search-container')) {
+      if (!event.target.closest(".search-container")) {
         setIsActive(false);
+        // Agrega la clase hidden cuando desactivas la barra de búsqueda
+        document.querySelector(".search-container").classList.add("hidden");
       }
     };
 
-    document.addEventListener('click', activateSearchBar);
-    document.addEventListener('click', deactivateSearchBar);
+    document.addEventListener("click", activateSearchBar);
+    document.addEventListener("click", deactivateSearchBar);
 
     return () => {
-      document.removeEventListener('click', activateSearchBar);
-      document.removeEventListener('click', deactivateSearchBar);
+      document.removeEventListener("click", activateSearchBar);
+      document.removeEventListener("click", deactivateSearchBar);
     };
   }, [debouncedQuery]);
 
@@ -57,7 +59,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSelectGame = (selectedGame) => {
-    console.log('Juego seleccionado:', selectedGame);
+    console.log("Juego seleccionado:", selectedGame);
   };
 
   const handleSubmit = (e) => {
@@ -65,7 +67,10 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`search-container ${isActive ? 'active' : ''}`}>
+    <form
+      onSubmit={handleSubmit}
+      className={`search-container ${isActive ? "active" : ""}`}
+    >
       <img src={SearchIcon} alt="Icono de búsqueda" className="search-icon" />
       <input
         type="text"
