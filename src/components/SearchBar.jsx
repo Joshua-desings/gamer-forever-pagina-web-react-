@@ -1,4 +1,3 @@
-// SearchBar.jsx
 import React, { useState, useEffect } from 'react';
 import useDebounce from '../utils/debounce';
 import api from '../services/api';
@@ -78,7 +77,7 @@ const SearchBar = ({ onSearch }) => {
       {loading && <Loader />}
 
       {searchResults.length > 0 && (
-        <div className="search-results">
+       <div className={`search-results ${isActive ? 'visible' : ''}`}>
           <ul>
             {searchResults.map((game) => (
               <li key={game.id} onClick={() => handleSelectGame(game)}>

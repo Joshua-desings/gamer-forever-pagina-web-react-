@@ -1,4 +1,3 @@
-// CategoriesList.jsx
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/App.css';
 
@@ -18,17 +17,22 @@ const CategoriesList = () => {
 
   return (
     <div className="categories-list">
-      <h2>Categorías</h2>
+      <div className="categories-header">
+        <h2 className="categories-title">Categorías</h2>
+        <button className="see-all-button">Ver todo</button>
+      </div>
       <div className="category-container">
         {categories.map(category => (
           <div key={category.id} className="category-item">
-            <img
-              src={category.image_background} // Utiliza la propiedad que contenga la URL de la imagen de la categoría
-              alt={category.name}
-              style={{ maxWidth: '100%', height: '350px', }} // Ajusta el tamaño según tus necesidades
-            />
+            <div className="category-image-wrapper">
+              <img
+                src={category.image_background} // URL de la imagen de la categoría
+                alt={category.name}
+                className="category-image"
+              />
+            </div>
             <div className="category-name-overlay">
-              {category.name}
+              {category.name.toUpperCase()} {/* Mostrar el nombre en mayúsculas */}
             </div>
           </div>
         ))}
